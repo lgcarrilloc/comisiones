@@ -1,35 +1,179 @@
+/* =====================
+   RESET + VARIABLES
+===================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --accent: #22c55e;
+    --accent-dark: #16a34a;
+    --text-light: #cbd5f5;
+    --text-strong: #ffffff;
+    --radius: 16px;
+}
+
+/* =====================
+   BODY
+===================== */
 body {
-    font-family: Arial;
-    background-color: #0f172a;
-    color: white;
+    font-family: "Arial", sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-strong);
+    min-height: 100vh;
+    padding: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
+/* =====================
+   CONTENEDOR (CARD)
+===================== */
 .contenedor {
-    background-color: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+    width: 100%;
+    max-width: 430px;
+    background: linear-gradient(180deg, #1e293b, #0f172a);
+    padding: 26px;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+    animation: aparecer 0.6s ease-out;
+}
+
+/* =====================
+   TITULOS
+===================== */
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 22px;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    margin-top: 26px;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    border-top: 1px solid #334155;
+    padding-top: 14px;
+}
+
+/* =====================
+   FORMULARIO
+===================== */
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 6px;
 }
 
 input {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: #020617;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    transition: border 0.2s, box-shadow 0.2s;
 }
 
+input:focus {
+    outline: none;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 0 2px rgba(34,197,94,0.3);
+}
+
+/* =====================
+   BOTON
+===================== */
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #22c55e;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 12px;
     border: none;
-    color: white;
     cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), #4ade80);
+    color: #064e3b;
+    letter-spacing: 0.5px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover {
-    background-color: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34,197,94,0.35);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* =====================
+   RESULTADOS (ESTILO TARJETA)
+===================== */
+p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255,255,255,0.04);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+span {
+    font-weight: bold;
+    color: #4ade80;
+}
+
+/* TOTAL DESTACADO */
+#spTotal {
+    font-size: 1.1rem;
+}
+
+/* =====================
+   ANIMACIONES
+===================== */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================
+   TABLETS
+===================== */
+@media (min-width: 600px) {
+    .contenedor {
+        max-width: 520px;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+}
+
+/* =====================
+   DESKTOP
+===================== */
+@media (min-width: 900px) {
+    .contenedor {
+        max-width: 560px;
+    }
 }
