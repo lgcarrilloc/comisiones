@@ -177,3 +177,9 @@ span {
         max-width: 560px;
     }
 }
+
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 0.9em;
+}
